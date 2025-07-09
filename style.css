@@ -1,0 +1,482 @@
+/* Colours: #46211A, #A43820, #F1D3B2*/
+/* Navbar custom styles */
+.navbar-brand img {
+    height: 35px;
+}
+
+/* Search Button */
+.btn-outline-light {
+    border-color: #A43820;
+    color: #A43820;
+}
+
+.btn-outline-light:hover {
+    background-color: #A43820;
+    color: white;
+}
+
+/* Show dropdown */
+.cart-icon.show .cart-dropdown {
+    display: block;
+}
+
+/* Hover effect on nav links */
+.navbar .nav-link:hover {
+    color: #3B060A !important;
+    transition: color 0.3s ease;
+}
+
+.custom-red {
+    background-color: #A43820;
+    color: white;
+    border: none;
+}
+
+.custom-red:hover {
+    background-color: #822c16;
+}
+
+/*Hero */
+.text-coffee {
+    color: #46211A;
+}
+
+.about-text {
+    color: #5f5f5f;
+    font-size: 1.1rem;
+}
+
+.tagline {
+    color: #A43820;
+    font-style: italic;
+    font-size: 1.05rem;
+}
+
+.hero {
+    min-height: 85vh;
+    background: url('/static/media/home1.jpg') center center / cover no-repeat;
+    padding: 40px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    flex-direction: column;
+}
+
+.hero-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #46211A;
+    margin-bottom: 1rem;
+}
+
+.hero-text {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    font-size: 1.1rem;
+    color: #46211A;
+}
+
+.btn-menu {
+    background-color: #46211A;
+    border-color: #46211A;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-menu:hover {
+    background-color: #2f130d;
+    border-color: #2f130d;
+}
+
+.btn-order {
+    background-color: #A43820;
+    border-color: #A43820;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-order:hover {
+    background-color: #822c16;
+    border-color: #822c16;
+}
+
+/* === Color Classes === */
+.text-highlight {
+    color: #A43820;
+    font-weight: bold;
+}
+
+/* === Filter Buttons === */
+.filter-btn {
+    background-color: #F1D3B2;
+    color: #46211A;
+    border: 1px solid #46211A;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active-filter {
+    background-color: #A43820;
+    color: #fff;
+}
+
+.menu-item .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-img-top {
+    height: 220px;
+    /* Adjust height as needed */
+    object-fit: cover;
+    /* Ensures image fills area without distortion */
+    width: 100%;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+/* === Card Styling === */
+.card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #4B3832;
+}
+
+.stars i {
+    color: #3B060A;
+}
+
+.btn-add-to-cart {
+    background-color: #46211A;
+    color: #fff;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #A43820;
+}
+
+/* === Responsive Adjustment === */
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .filter-btn {
+        margin: 3px 2px;
+        padding: 8px 12px;
+    }
+}
+
+/* Feedback */
+#feedback .form-control {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#feedback .form-control:focus {
+    border-color: #A43820;
+    box-shadow: 0 0 0 0.2rem rgba(164, 56, 32, 0.25);
+}
+
+/* Feedback Image */
+.feedback-img {
+    height: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-right: 3px solid #f3f3f3;
+}
+
+/* Form Styling */
+#feedback form {
+    transition: all 0.3s ease-in-out;
+}
+
+#feedback form:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Smooth rounded corners */
+#feedback .rounded-4 {
+    border-radius: 1rem !important;
+}
+
+/* Button Styling */
+.btn-submit {
+    background-color: #A43820;
+    color: white;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-submit:hover {
+    background-color: #872c18;
+    transform: scale(1.05);
+}
+
+/* Toast styling for better view */
+.toast-container {
+    z-index: 1055;
+}
+
+/* Footer */
+.footer-link:hover {
+    text-decoration: underline;
+    color: #ffa07a;
+}
+
+.btn-submit {
+    background-color: #A43820;
+    color: #fff;
+    border: none;
+}
+
+.btn-submit:hover {
+    background-color: #8a2c14;
+}
+
+.footer {
+    background: linear-gradient(to right, #2d2d2d, #1a1a1a);
+}
+
+.modal-content {
+    border-radius: 15px;
+}
+
+/* Login */
+.btn-login {
+    background-color: #A43820;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #822c16;
+}
+
+/* Job Application Page Styles */
+.text-coffee {
+    color: #A43820;
+}
+
+.btn-submit {
+    background-color: #A43820;
+    color: #fff;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-submit:hover {
+    background-color: #872f1a;
+    color: #fff;
+}
+
+form .form-label {
+    font-weight: 500;
+    color: #333;
+}
+
+input.form-control,
+select.form-control,
+textarea.form-control {
+    border-radius: 10px;
+    box-shadow: none;
+    transition: border-color 0.2s ease-in-out;
+}
+
+input.form-control:focus {
+    border-color: #A43820;
+    box-shadow: 0 0 0 0.1rem rgba(164, 56, 32, 0.25);
+}
+
+/* Cart */
+#cart-toast {
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+#cart-dropdown img {
+    object-fit: cover;
+}
+
+@media (max-width: 992px) {
+    .navbar .form-control {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .card img {
+        height: 180px;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .modal-dialog {
+        margin: 1.75rem auto;
+    }
+}
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: none;
+    z-index: 999;
+}
+
+.cart-dropdown.show {
+    display: block;
+}
+
+.cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.cart-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-item-content {
+    flex: 1;
+}
+
+.cart-item-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.cart-item-price {
+    color: var(--primary-color, #6f42c1);
+    /* default fallback purple */
+    font-weight: 600;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.cart-quantity-btn {
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border: none;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cart-quantity-input {
+    width: 40px;
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.cart-remove {
+    color: var(--bs-danger, red);
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Cart Buttons with custom colors */
+.cart-buttons .btn-success {
+    background-color: #A43820;
+    border-color: #A43820;
+    color: white;
+}
+
+.cart-buttons .btn-warning {
+    background-color: #46211A;
+    border-color: #46211A;
+    color: white;
+}
