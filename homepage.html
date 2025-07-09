@@ -1,0 +1,1104 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kohi</title>
+    <link rel="stylesheet" href="{% static 'Kohi/style.css' %}">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Feedback Form -->
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Menu Reting Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Footer -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+                <img src="{% static 'media/navbar.png' %}" alt="Navbar Image" class="me-2" style="height: 35px;">
+                <span style="color:#F1D3B2;">Kohi</span><span style="color:#A43820;">Kohi</span>
+            </a>
+
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active text-success fw-semibold" href="#"
+                            style="color: #3B060A;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bestsellers">Best Sellers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#feedback">Feedback</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'map' %}">Map</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                    </li>
+                </ul>
+
+                <!-- Search -->
+                <form class="d-flex me-3" role="search">
+                    <input class="form-control me-1" type="search" placeholder="Search menu..." />
+                    <button class="btn btn-outline-light" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+
+                <!-- Cart -->
+                <div class="cart-icon position-relative" id="cart-toggle">
+                    <i class="fas fa-shopping-cart fa-lg text-white"></i>
+                    <span
+                        class="cart-count badge rounded-pill bg-success position-absolute top-0 start-100 translate-middle">0</span>
+
+                    <!-- Dropdown -->
+                    <div class="cart-dropdown shadow-lg p-3">
+                        <div class="cart-items"></div>
+                        <div class="cart-total d-flex justify-content-between border-top pt-3 mt-2">
+                            <span>Total:</span>
+                            <span class="cart-total-amount fw-bold">$0.00</span>
+                        </div>
+                        <div class="cart-buttons d-flex justify-content-between mt-3">
+                            <button class="btn btn-success w-50 me-2">View Cart</button>
+                            <button class="btn btn-warning w-50">Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section class="hero">
+        <div class="text-center">
+            <h1 class="display-4 fw-bold hero-heading">More than just coffee, It's a moment.</h1>
+            <p class="lead hero-text">
+                How do you start your day? With a cup of joe from the local coffee shop? Or maybe you're
+                more of an at-home kinda person and brew your own cup. Regardless of where your morning cup is from, it
+                starts your day off right.
+            </p>
+            <a href="#menu" class="btn btn-menu text-white me-2">View Menu</a>
+            <a href="{% url 'menu_page' %}" class="btn btn-menu text-white me-2">Order Now</a>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center gy-4">
+                <!-- Image -->
+                <div class="col-md-6">
+                    <img src="/static/media/about.jpg" alt="About Us Image" class="img-fluid rounded-4 shadow">
+                </div>
+
+                <!-- Text -->
+                <div class="col-md-6">
+                    <h2 class="fw-bold mb-3 text-coffee">About Us</h2>
+                    <p class="lead about-text">
+                        It takes many hands to craft the perfect cup of coffee – from the farmers who tend to the
+                        red-ripe coffee cherries, to the master roasters who coax the best from every bean, and to the
+                        barista who serves it with care. We are committed to the highest standards of quality and
+                        service, embracing our heritage while innovating to create new experiences to savor.
+                    </p>
+                    <p class="fw-semibold tagline">“Where Every Cup Tells a Story.”</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section Placeholder -->
+    <section class="container py-5" id="menu">
+        <h2 class="text-center mb-5 text-coffee">Our Menu</h2>
+        <!-- Filter Buttons -->
+        <div class="text-center mb-4">
+            <button class="btn filter-btn active-filter" data-filter="summer">Summer Drinks</button>
+            <button class="btn filter-btn" data-filter="winter">Winter Drinks</button>
+            <button class="btn filter-btn" data-filter="ice">Ice Cold</button>
+            <button class="btn filter-btn" data-filter="dessert">Dessert</button>
+        </div>
+        <!-- Summer -->
+        <div class="menu-category" data-category="summer">
+            <div class="row menu-items">
+                <div class="col-md-4 mb-4 menu-item" data-category="summer">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/cappucinno.jpg" class="card-img-top" alt="Cappuccino">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee">Cappuccino <span
+                                    class="float-end text-highlight">$5.99</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee1" data-name="Cappuccino"
+                                data-price="5.99" data-image="/static/media/cappucinno.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="summer">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/hazelnutlatte.jpg" class="card-img-top" alt="Hazelnutlatte">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Hazelnut Latte <span
+                                    class="float-end text-highlight">$8.65</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee2" data-name="Hazelnut Latte"
+                                data-price="8.65" data-image="/static/media/hazelnutlatte.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="summer">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/espresso.jpg" class="card-img-top" alt="Espresso">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Espresso <span
+                                    class="float-end text-highlight">$7.34</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee3" data-name="Espresso"
+                                data-price="7.34" data-image="/static/media/espresso.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="summer">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/americano.jpg" class="card-img-top" alt="Americano">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Americano <span
+                                    class="float-end text-highlight">$3.45</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee4" data-name="Americano"
+                                data-price="3.45" data-image="/static/media/americano.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="summer">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/latte.jpg" class="card-img-top" alt="Latte">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Latte <span
+                                    class="float-end text-highlight">$5.99</span> </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee5" data-name="Latte"
+                                data-price="5.99" data-image="/static/media/latte.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="summer">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/whitemocha.jpg" class="card-img-top" alt="Whitemocha">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Whitemocha <span
+                                    class="float-end text-highlight">$8.95</span> </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee6" data-name="Whitemocha"
+                                data-price="8.95" data-image="/static/media/whitemocha.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Winter -->
+        <div class="menu-category" data-category="winter">
+            <div class="row menu-items">
+                <div class="col-md-4 mb-4 menu-item" data-category="winter">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/brawniemocha.jpg" class="card-img-top" alt="Brawniemocha">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Brawnie Mocha <span
+                                    class="float-end text-highlight">$5.99</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee7" data-name="Brawnie Mocha"
+                                data-price="5.99" data-image="/static/media/brawniemocha.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="winter">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/cafefreddo.jpg" class="card-img-top" alt="Cafefreddo">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Cafe Freddo <span
+                                    class="float-end text-highlight">$8.65</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee8" data-name="Cafe Freddo"
+                                data-price="8.65" data-image="/static/media/cafefreddo.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="winter">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/coldchoco.jpg" class="card-img-top" alt="Coldchoco">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Cold Choco <span
+                                    class="float-end text-highlight">$7.34</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee9" data-name="Cold Choco"
+                                data-price="7.34" data-image="/static/media/coldchoco.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="winter">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/macchiato.jpg" class="card-img-top" alt="Macchiato">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Macchiato <span
+                                    class="float-end text-highlight">$9.45</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee10" data-name="Macchiato"
+                                data-price="9.45" data-image="/static/media/macchiato.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="winter">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/chocococonut.jpg" class="card-img-top" alt="Chocococonut">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Choco Coconut <span
+                                    class="float-end text-highlight">$5.99</span> </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee11" data-name="Choco Coconut"
+                                data-price="5.99" data-image="/static/media/chocococonut.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="winter">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/coldamericano.jpg" class="card-img-top" alt="Coldamericano">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Cold Americano <span
+                                    class="float-end text-highlight">$8.95</span> </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee12" data-name="Cold Americano"
+                                data-price="8.95" data-image="/static/media/coldamericano.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ICE -->
+        <div class="menu-category" data-category="ice">
+            <div class="row menu-items">
+                <div class="col-md-4 mb-4 menu-item" data-category="ice">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/pineaplelush.jpg" class="card-img-top" alt="Pineaplelush">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Pineaplelush <span
+                                    class="float-end text-highlight">$5.99</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee13" data-name="Pineaplelush"
+                                data-price="5.99" data-image="/static/media/pineaplelush.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="ice">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/raspberrymocha.jpg" class="card-img-top" alt="Raspberrymocha">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Raspberrymocha <span
+                                    class="float-end text-highlight">$8.65</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee14" data-name="Raspberrymocha"
+                                data-price="8.65" data-image="/static/media/raspberrymocha.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="ice">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/saltedcaramellatte.jpg" class="card-img-top" alt="Saltedcaramellatte">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Salted Caramel Latte <span
+                                    class="float-end text-highlight">$7.34</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee15"
+                                data-name="Salted Caramel Latte" data-price="7.34"
+                                data-image="/static/media/saltedcaramellatte.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="ice">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/vanilamilkshake.jpg" class="card-img-top" alt="Vanilamilkshake">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Vanilamilkshake <span
+                                    class="float-end text-highlight">$9.45</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee16" data-name="Vanilamilkshake"
+                                data-price="9.45" data-image="/static/media/vanilamilkshake.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="ice">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/vodkaespresso.jpg" class="card-img-top" alt="Vodkaespresso">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Vodka Espresso <span
+                                    class="float-end text-highlight">$5.99</span> </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee17" data-name="Vodka Espresso"
+                                data-price="5.99" data-image="/static/media/vodkaespresso.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="ice">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/BlueSky.jpg" class="card-img-top" alt="BlueSky">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Blue Sky <span
+                                    class="float-end text-highlight">$8.95</span> </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee18" data-name="Blue Sky"
+                                data-price="8.95" data-image="/static/media/BlueSky.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Dessert -->
+        <div class="menu-category" data-category="dessert">
+            <div class="row menu-items">
+                <div class="col-md-4 mb-4 menu-item" data-category="dessert">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/berrychesscake.jpg" class="card-img-top" alt="Berrychesscake">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Berrychesscake <span
+                                    class="float-end text-highlight">$5.99</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee19" data-name="Berrychesscake"
+                                data-price="5.99" data-image="/static/media/berrychesscake.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="dessert">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/blueberrypancake.jpg" class="card-img-top" alt="Blueberrypancake">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Blueberry Pancake <span
+                                    class="float-end text-highlight">$8.65</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee20" data-name="Blueberry Pancake"
+                                data-price="8.65" data-image="/static/media/blueberrypancake.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="dessert">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/brawnie.jpg" class="card-img-top" alt="Brawnie">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Brawnie <span
+                                    class="float-end text-highlight">$7.34</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee21" data-name="Brawnie"
+                                data-price="7.34" data-image="/static/media/brawnie.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="dessert">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/caramelpudding.jpg" class="card-img-top" alt="Caramelpudding">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Caramel Pudding <span
+                                    class="float-end text-highlight">$9.45</span></h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee22" data-name="Caramel Pudding"
+                                data-price="9.45" data-image="/static/media/caramelpudding.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="dessert">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/chocolateball.jpg" class="card-img-top" alt="Chocolateball">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Chocolateball <span
+                                    class="float-end text-highlight">$5.99</span> </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee23" data-name="Chocolateball"
+                                data-price="5.99" data-image="/static/media/chocolateball.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 menu-item" data-category="dessert">
+                    <div class="card border-0 shadow-sm h-100 d-flex flex-column">
+                        <img src="/static/media/chocolatechesscake.jpg" class="card-img-top" alt="Chocolatechesscake">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee"> Chocolate Chesscake <span
+                                    class="float-end text-highlight">$8.95</span> </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee24"
+                                data-name="Chocolate Chesscake" data-price="8.95"
+                                data-image="/static/media/chocolatechesscake.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section id="bestsellers" class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="mb-5 text-coffee">Best Sellers</h2>
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100 position-relative d-flex flex-column">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">Top Seller</span>
+                        <img src="/static/media/lemonchesscake.jpg" class="card-img-top" alt="Lemon Chesscake">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee">Lemon Chesscake
+                                <span class="float-end text-highlight">$5.99</span>
+                            </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+                                    class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee25" data-name="Lemon Chesscake"
+                                data-price="5.99" data-image="/static/media/lemonchesscake.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100 position-relative d-flex flex-column">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">Today's Special</span>
+                        <img src="/static/media/macaroni.jpg" class="card-img-top" alt="Macaroni">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee">Macaroni
+                                <span class="float-end text-highlight">$8.65</span>
+                            </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee26" data-name="Macaroni"
+                                data-price="8.65" data-image="/static/media/macaroni.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100 position-relative d-flex flex-column">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">Top Seller</span>
+                        <img src="/static/media/feedback.jpg" class="card-img-top" alt="Double Shot Espresso">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee">Double Shot Espresso
+                                <span class="float-end text-highlight">$7.34</span>
+                            </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+                                    class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee27"
+                                data-name="Double Shot Espresso" data-price="7.34"
+                                data-image="/static/media/feedback.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100 position-relative d-flex flex-column">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">New Drink</span>
+                        <img src="/static/media/BlueSky.jpg" class="card-img-top" alt="Blue Sky">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee">Blue Sky
+                                <span class="float-end text-highlight">$3.45</span>
+                            </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee28" data-name="Blue Sky"
+                                data-price="3.45" data-image="/static/media/BlueSky.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100 position-relative d-flex flex-column">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">Today's Special</span>
+                        <img src="/static/media/Sandwich.jpg" class="card-img-top" alt="Sandwich">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee">Sandwich
+                                <span class="float-end text-highlight">$10.99</span>
+                            </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee29" data-name="Sandwich"
+                                data-price="10.99" data-image="/static/media/Sandwich.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm h-100 position-relative d-flex flex-column">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">Top Seller</span>
+                        <img src="/static/media/SubSandwich.jpg" class="card-img-top" alt="Sub Sandwich">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-coffee">Sub Sandwich
+                                <span class="float-end text-highlight">$12.95</span>
+                            </h5>
+                            <div class="stars mb-2">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i
+                                    class="far fa-star"></i>
+                            </div>
+                            <button class="btn btn-add-to-cart mt-auto" data-id="coffee30" data-name="Sub Sandwich"
+                                data-price="12.95" data-image="/static/media/SubSandwich.jpg">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JS Code for Responsive part for each Item-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const menuItems = document.querySelectorAll(".menu-item");
+
+            filterButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove("active-filter"));
+                    button.classList.add("active-filter");
+
+                    const filter = button.getAttribute("data-filter");
+
+                    menuItems.forEach(item => {
+                        if (item.getAttribute("data-category") === filter || filter === "all") {
+                            item.style.display = "block";
+                        } else {
+                            item.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <!-- Feedback Section -->
+    <section class="container my-5" id="feedback">
+        <div class="row g-0 shadow-lg rounded-4 overflow-hidden animate__animated animate__fadeInRight">
+            <!-- Image Column -->
+            <div class="col-md-6 d-none d-md-block">
+                <div class="h-100 w-100 overflow-hidden">
+                    <img src="/static/media/feedback1.jpg" class="img-fluid h-100 w-100 object-fit-cover" alt="Feedback"
+                        style="object-fit: cover; object-position: center; height: 100%;">
+                </div>
+            </div>
+
+            <!-- Feedback Form Column -->
+            <div class="col-md-6 bg-light p-5 d-flex align-items-center">
+                <div class="w-100">
+                    <div class="text-center mb-4">
+                        <h2 class="text-coffee">💬 We'd Love Your Feedback</h2>
+                        <p class="text-muted">Tell us what you loved or what we can improve.<br>Your opinion helps us
+                            serve you better!</p>
+                    </div>
+                    <form method="POST" action="{% url 'submit_feedback' %}" class="bg-white p-4 rounded-4 shadow-sm"
+                        id="feedback-form">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_name" class="form-label">Name</label>
+                            <input type="text" name="name" class="form-control" id="id_name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_email" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="id_email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_message" class="form-label">Message</label>
+                            <textarea name="message" class="form-control" id="id_message" rows="5" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-submit px-4 mt-3">📨 Send Feedback</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="feedbackToast" class="toast align-items-center text-white bg-success border-0" role="alert"
+                aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        ✅ Thank you! Your feedback has been submitted.
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional JS Animation -->
+    <script>
+        // Show toast on form submission (simulate with JS)
+        document.getElementById('feedback-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // prevent actual submission for demo
+            const toast = new bootstrap.Toast(document.getElementById('feedbackToast'));
+            toast.show();
+
+            // Simulate successful form submit (you can remove this timeout if using real backend)
+            setTimeout(() => {
+                e.target.submit(); // Now do the real submit
+            }, 1000);
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+
+                <!-- Logo & About -->
+                <div class="col-md-4 mb-4 text-center text-md-start">
+                    <h4 class="fw-bold mb-2">☕ Kohi<span style="color:#A43820;">Kohi</span></h4>
+                    <p>Your cozy corner for handcrafted coffee and sweet delights. <br>Savor the flavor, sip by sip.</p>
+
+                    <!-- Social Links -->
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-4 mb-4 text-center text-md-start">
+                    <h5 class="fw-bold mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="footer-link text-white text-decoration-none">🏠 Home</a></li>
+                        <li><a href="#menu" class="footer-link text-white text-decoration-none">📋 Menu</a></li>
+                        <li><a href="#bestsellers" class="footer-link text-white text-decoration-none">🔥 Best
+                                Sellers</a></li>
+                        <li><a href="#feedback" class="footer-link text-white text-decoration-none">📝 Feedback</a></li>
+                        <li><a href="#about" class="footer-link text-white text-decoration-none">ℹ️ About Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Career -->
+                <div class="col-md-4 mb-4 text-center text-md-start">
+                    <h5 class="fw-bold mb-3">Contact & Careers</h5>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@kohikohi.com"
+                            class="text-white text-decoration-none">info@kohikohi.com</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+1234567890" class="text-white text-decoration-none">+1
+                            234 567 890</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</p>
+
+                    <!-- Job buttons -->
+                    <a href="{% url 'job_application' %}" class="btn btn-outline-light me-2">Apply for Job</a>
+                    <button class="btn btn-outline-warning btn-sm mt-2" onclick="showVacancies()">View Openings</button>
+                </div>
+            </div>
+
+            <!-- Email Subscription 
+            <div class="row mt-4">
+                <div class="col-md-6 mx-auto text-center">
+                    <h6 class="mb-3">📬 Subscribe to our Newsletter</h6>
+                    <form class="d-flex justify-content-center">
+                        <input type="email" class="form-control w-50 me-2" placeholder="Enter your email">
+                        <button class="btn btn-submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>-->
+
+            <hr class="bg-light mt-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2025 KohiKohi. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer JS -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        function showVacancies() {
+            alert("🔍 Current Vacancies:\n• Barista\n• Waiter\n• Delivery Staff\n\nTo apply, click the 'Apply for Job' button.");
+        }
+    </script>
+
+    <!-- Cart Notification -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="cartToast" class="toast align-items-center text-white bg-success border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body" id="toastMessage">
+                    ✅ Item added to cart!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow rounded-4">
+                <div class="modal-header border-0 bg-light">
+                    <h5 class="modal-title fw-bold text-coffee" id="loginModalLabel">Welcome Back!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4 py-3">
+                    <form method="POST" action="{% url 'home' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input type="email" name="email" class="form-control form-control-lg"
+                                placeholder="Email address" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" name="password" class="form-control form-control-lg"
+                                placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="btn btn-login w-100 mb-3">Login</button>
+                        <div class="text-center">
+                            <span class="text-muted">Don't have an account?
+                                <a href="{% url 'register' %}" class="text-highlight fw-semibold">Register</a>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Add Cart JS -->
+    <script>
+        const cartDropdown = document.querySelector('.cart-dropdown');
+        const cartIcon = document.getElementById('cart-toggle');
+        const addToCartBtns = document.querySelectorAll('.btn-add-to-cart');
+        const cartItemsContainer = document.querySelector('.cart-items');
+        const cartTotal = document.querySelector('.cart-total-amount');
+        const cartCount = document.querySelector('.cart-count');
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function updateCart() {
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="text-center">Your cart is empty</p>';
+                cartTotal.textContent = '$0.00';
+                cartCount.textContent = '0';
+                cartDropdown.classList.remove('show');
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                cartItemsContainer.innerHTML += `
+        <div class="cart-item">
+          <div class="cart-item-img">
+            <img src="${item.image}" alt="${item.name}">
+          </div>
+          <div class="cart-item-content">
+            <div class="cart-item-title">${item.name}</div>
+            <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+            <div class="cart-item-quantity">
+              <button class="cart-quantity-btn decrease-quantity" data-index="${index}">-</button>
+              <input type="number" class="cart-quantity-input" value="${item.quantity}" min="1" data-index="${index}">
+              <button class="cart-quantity-btn increase-quantity" data-index="${index}">+</button>
+              <span class="cart-remove" data-index="${index}">Remove</span>
+            </div>
+          </div>
+        </div>`;
+            });
+
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartDropdown.classList.add('show');
+
+            // Quantity handlers
+            document.querySelectorAll('.decrease-quantity').forEach(btn =>
+                btn.addEventListener('click', () => {
+                    const index = btn.dataset.index;
+                    if (cart[index].quantity > 1) cart[index].quantity--;
+                    updateCart();
+                    saveCart();
+                })
+            );
+
+            document.querySelectorAll('.increase-quantity').forEach(btn =>
+                btn.addEventListener('click', () => {
+                    const index = btn.dataset.index;
+                    cart[index].quantity++;
+                    updateCart();
+                    saveCart();
+                })
+            );
+
+            document.querySelectorAll('.cart-quantity-input').forEach(input =>
+                input.addEventListener('change', () => {
+                    const index = input.dataset.index;
+                    const value = parseInt(input.value);
+                    if (value > 0) {
+                        cart[index].quantity = value;
+                        updateCart();
+                        saveCart();
+                    } else {
+                        input.value = 1;
+                    }
+                })
+            );
+
+            document.querySelectorAll('.cart-remove').forEach(btn =>
+                btn.addEventListener('click', () => {
+                    const index = btn.dataset.index;
+                    cart.splice(index, 1);
+                    updateCart();
+                    saveCart();
+                })
+            );
+        }
+
+        function addToCart(item) {
+            const index = cart.findIndex(i => i.id === item.id);
+            if (index !== -1) {
+                cart[index].quantity++;
+            } else {
+                cart.push({ ...item, quantity: 1 });
+            }
+            updateCart();
+            saveCart();
+            showToast(`${item.name} added to cart!`);
+        }
+
+        function showToast(message) {
+            const toastEl = document.getElementById('cartToast');
+            const toastBody = document.getElementById('toastMessage');
+            toastBody.textContent = message;
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+        }
+
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = {
+                    id: btn.dataset.id,
+                    name: btn.dataset.name,
+                    price: parseFloat(btn.dataset.price),
+                    image: btn.dataset.image
+                };
+                addToCart(item);
+            });
+        });
+
+        // Toggle cart
+        cartIcon.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (cart.length > 0) {
+                cartDropdown.classList.toggle('show');
+            }
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.cart-dropdown') && !e.target.closest('.cart-icon')) {
+                cartDropdown.classList.remove('show');
+            }
+        });
+
+        updateCart();
+    </script>
+
+</body>
+
+</html>
