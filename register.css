@@ -1,0 +1,81 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #f7f1ed, #fdfdfd);
+    color: #333;
+}
+
+/* Glass Effect */
+.glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Brand Colors */
+.text-coffee {
+    color: #46211A;
+}
+
+.text-highlight {
+    color: #A43820;
+    text-decoration: none;
+}
+
+.text-highlight:hover {
+    color: #822c16;
+    text-decoration: underline;
+}
+
+/* Register Button */
+.btn-register {
+    background: linear-gradient(to right, #A43820, #7e1e14);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    padding: 0.6rem;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.btn-register:hover {
+    background: linear-gradient(to right, #7e1e14, #A43820);
+    transform: translateY(-2px);
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #A43820;
+    box-shadow: 0 0 5px rgba(164, 56, 32, 0.4);
+    outline: none;
+}
+
+/* Validation Error */
+.is-invalid {
+    border-color: red;
+}
+
+/* Responsive Touch */
+@media (max-width: 768px) {
+    .glass-card {
+        border-radius: 20px;
+        padding: 1rem;
+    }
+
+    .glass-card .form-side {
+        padding: 2rem 1rem;
+    }
+}
